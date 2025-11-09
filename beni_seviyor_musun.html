@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Beni Seviyor musun?</title>
+<style>
+  body {
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZr_q7LyW1uz3-hldWJKMRHEcGvdwwZvuHGQ&s');
+    background-size: cover;
+    text-align: center;
+    margin-top: 150px;
+    font-family: Arial;
+  }
+
+  h1 {
+    font-size: 40px;
+    color: white;
+    text-shadow: 2px 2px 8px black;
+  }
+
+  button {
+    font-size: 20px;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 20px;
+    transition: all 0.3s;
+  }
+
+  #evet {
+    background-color: pink;
+  }
+
+  #hayir {
+    background-color: lightgray;
+  }
+</style>
+</head>
+<body>
+  <h1>Beni seviyor musun? 💕</h1>
+  <button id="evet">Evet</button>
+  <button id="hayir">Hayır</button>
+
+  <script>
+    const evet = document.getElementById("evet");
+    const hayir = document.getElementById("hayir");
+
+    // Başlangıç boyutları
+    let evetSize = 1;  // 1 = %100
+    let hayirSize = 1; // 1 = %100
+
+    evet.addEventListener("click", () => {
+      alert("Ben de seni seviyorum! 💖");
+    });
+
+    hayir.addEventListener("click", () => {
+      // Hayır küçülüyor
+      hayirSize -= 0.1;  // her tıkta %10 küçül
+      if (hayirSize < 0.1) hayirSize = 0.1; // çok küçülmesin
+      hayir.style.transform = `scale(${hayirSize})`;
+
+      // Evet büyüyor
+      evetSize += 0.1;  // her tıkta %10 büyüyor
+      if (evetSize > 3) evetSize = 3; // ekranda taşmasın
+      evet.style.transform = `scale(${evetSize})`;
+    });
+  </script>
+</body>
+</html>
